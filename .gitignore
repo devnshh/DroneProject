@@ -1,5 +1,2 @@
-/Mediapipe/dataset
-/Mediapipe/*.pkl
-/CNN/dataset
-/CNN/*.pth
-/CNN/class_names.json
+/Mediapipe/dataset/*
+/CNN/dataset/*
