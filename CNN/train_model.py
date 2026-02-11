@@ -14,7 +14,7 @@ CLASSES_PATH = os.path.join(SCRIPT_DIR, "class_names.json")
 
 IMG_SIZE = 128
 BATCH_SIZE = 32
-EPOCHS = 5
+EPOCHS = 10
 LR = 0.001
 
 
