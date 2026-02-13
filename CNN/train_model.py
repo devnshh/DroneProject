@@ -13,8 +13,8 @@ MODEL_PATH = os.path.join(SCRIPT_DIR, "gesture_model.pth")
 CLASSES_PATH = os.path.join(SCRIPT_DIR, "class_names.json")
 
 IMG_SIZE = 128
-BATCH_SIZE = 32
-EPOCHS = 10
+BATCH_SIZE = 64
+EPOCHS = 3
 LR = 0.001
 
 
@@ -71,7 +71,6 @@ def train():
 
     train_transform = transforms.Compose([
         transforms.Resize((IMG_SIZE, IMG_SIZE)),
-        transforms.RandomHorizontalFlip(),
         transforms.RandomRotation(15),
         transforms.ColorJitter(brightness=0.2, contrast=0.2),
         transforms.ToTensor(),
@@ -105,7 +104,7 @@ def train():
     model = GestureCNN(num_classes).to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=LR)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.5)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=3, gamma=0.5)
 
     best_acc = 0.0
 

@@ -8,7 +8,7 @@ import time
 from collections import deque
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-MAX_BUFFER = 7
+MAX_BUFFER = 3
 CONFIRM_THRESHOLD = 5
 DETECTION_CONF = 0.7
 TRACKING_CONF = 0.7
@@ -124,11 +124,9 @@ def main():
 
         cv2.putText(frame, f"Gesture: {gesture}", (20, 40),
                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-        cv2.putText(frame, f"Stable: {stable_gesture}", (20, 80),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 0, 0), 2)
         cv2.putText(frame, f"FPS: {int(fps)}", (20, 120),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 2)
-        cv2.putText(frame, f"Conf: {confidence:.2f}", (20, 160),
+        cv2.putText(frame, f"Confidence: {confidence:.2f}", (20, 160),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (200, 200, 0), 2)
 
         cv2.imshow("Drone Control", frame)
